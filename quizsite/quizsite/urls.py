@@ -23,6 +23,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 router = routers.DefaultRouter()
 router.register('Questions',QuestionViewsets)
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token', obtain_auth_token, name="auth_token"),

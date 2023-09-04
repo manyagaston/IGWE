@@ -17,16 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from quiz.views import QuestionViewsets,PersonneCreateView
+from quiz.views import QuestionViewsets,CategoryViewsets
 from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register('Questions',QuestionViewsets)
-
+router.register('Categorys',CategoryViewsets)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token', obtain_auth_token, name="auth_token"),
     path('', include(router.urls)),
-    path('api/personne/', PersonneCreateView.as_view(), name='personne-create'),
+   # path('category/', CategoryViewsets.as_view(), name='personne-create'),
 ]

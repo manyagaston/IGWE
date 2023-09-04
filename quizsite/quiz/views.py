@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Question, Personne,Incorrect_answer
-from .serializers import QuestionSerializer,PersonneSerializer
+from .models import Question,Category
+from .serializers import QuestionSerializer,CategorySerializer
 from rest_framework import generics
 
 
@@ -10,7 +10,7 @@ class QuestionViewsets(viewsets.ModelViewSet):
     serializer_class = QuestionSerializer
     filterset_fields = ['question_type', 'category','difficulty',]
 
-class PersonneCreateView(generics.CreateAPIView):
-    queryset = Personne.objects.all()
-    serializer_class = PersonneSerializer
- 
+class CategoryViewsets(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    

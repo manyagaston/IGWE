@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.fields import ListField
-from .models import Question,Personne,Incorrect_answer
+from .models import Question,Category,Incorrect_answer
 
 class Incorrect_answerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,9 +28,10 @@ class QuestionSerializer(serializers.ModelSerializer):
         return [book.name for book in incorrect_answers]
 
 
-
-class PersonneSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
+    category = serializers.CharField(source="name", read_only=True)
+    
     class Meta:
-        model = Personne
-        fields = ['name', 'password', 'points']
- 
+        model = Category
+        fields = ('category', )
+    

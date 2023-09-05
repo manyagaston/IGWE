@@ -19,7 +19,7 @@ class QuestionSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = Question
-        fields = ('questions', 'type', 'categorys','difficultys', 'correct_answers', 'incorrect_answers', )
+        fields = ('id','questions', 'type', 'categorys','difficultys', 'correct_answers', 'incorrect_answers', )
         
  
     
@@ -33,5 +33,5 @@ class CategorySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Category
-        fields = ('category', )
+        fields = ('id','category', )
     
